@@ -1,4 +1,7 @@
-FROM ghcr.io/illeniumstudios/luacheck:v0.26.1-fivem-lua-v1.1.0
+FROM evandarwin/lua:latest
+RUN luarocks install argparse && \
+    luarocks install luafilesystem && \
+    luarocks install luacheck
 
 RUN mkdir -p /luacheck-fivem
 ADD . /luacheck-fivem/
