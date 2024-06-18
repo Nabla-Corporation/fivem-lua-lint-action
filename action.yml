@@ -1,33 +1,6 @@
 # action.yml
 name: "luacheck for FiveM"
 description: "Runs luacheck on a project with FiveM natives"
-inputs:
-  args:
-    description: "luacheck arguments to pass"
-    required: false
-    default: "-t"
-  paths:
-    description: "the path name to lint lua in"
-    required: false
-    default: "."
-  config_path:
-    description: "Config file path"
-    required: false
-    default: /luacheck-fivem/.luacheckrc.default
-  capture:
-    description: "capture output into a file"
-    required: false
-    default: ""
-  extra_libs:
-    description: "extra definitions to use, in the format of a+b+c"
-    required: false
-    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.args }}
-    - ${{ inputs.paths }}
-    - ${{ inputs.config_path }}
-    - ${{ inputs.capture }}
-    - ${{ inputs.extra_libs }}
