@@ -4,13 +4,15 @@ LUACHECK_ARGS="--default-config $CONFIG_PATH $1"
 LUACHECK_PATH="$2"
 LUACHECK_CAPTURE_OUTFILE="$GITHUB_WORKSPACE/$4"
 
-echo "$1"
+echo "1: $1"
 echo "\n"
-echo "$2"
+echo "2: $2"
 echo "\n"
-echo "$3"
+echo "3: $3"
 echo "\n"
-echo "$4"
+echo "4: $4"
+echo "\n"
+echo "5: $5"
 
 # extra luacheck definitions
 if [[ ! -z "$5" ]]; then
