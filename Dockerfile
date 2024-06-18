@@ -1,4 +1,4 @@
-FROM evandarwin/lua:latest
+FROM evandarwin/lua:5.3.5
 RUN luarocks install argparse && \
     luarocks install luafilesystem && \
     luarocks install luacheck
