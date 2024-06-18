@@ -1,28 +1,18 @@
 #!/bin/sh -l
-CONFIG_PATH=$3
-LUACHECK_ARGS="--default-config $CONFIG_PATH $1"
-LUACHECK_PATH="$2"
-LUACHECK_CAPTURE_OUTFILE="$GITHUB_WORKSPACE/$4"
-
-echo "1: $1"
-echo "\n"
-echo "2: $2"
-echo "\n"
-echo "3: $3"
-echo "\n"
-echo "4: $4"
-echo "\n"
-echo "5: $5"
+CONFIG_PATH=/luacheck-fivem/.luacheckrc.default
+LUACHECK_ARGS="--default-config $CONFIG_PATH -t --formatter JUnit --include-files **/[[]Nabla[]]/**/*.lua --include-files **/Nabla/*.lua --globals NativeUI UIMenuItem BadgeStyle --"
+LUACHECK_PATH="."
+LUACHECK_CAPTURE_OUTFILE="$GITHUB_WORKSPACE/junit.xml"
 
 # extra luacheck definitions
-if [[ ! -z "$5" ]]; then
+# if [[ ! -z "$5" ]]; then
   OLD_DIR=$(pwd)
   # regenerate with extras
   cd /luacheck-fivem/
-  yarn build "$5"
+  yarn build "mysql"
   # go back
   cd $OLD_DIR
-fi
+# fi
 
 EXIT_CODE=0
 
